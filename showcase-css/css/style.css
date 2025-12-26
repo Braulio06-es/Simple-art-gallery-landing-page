@@ -1,0 +1,268 @@
+:root {
+    --bg: #faf9f6;
+    --text: #1c1c1c;
+    --gold: #cfa057;
+    --gray: #e5e5e5;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+}
+
+h1,h2,h3,.brand {
+    font-family: var(--serif);
+}
+
+/* Header & Nav */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: sticky;
+    top: 0;
+    background: rgba(250, 249, 246, 0.95);
+    z-index: 10;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a:focus {
+    color: var(--gold);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 80vh;
+    padding: 0 5%;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.accent {
+    color: var(--gold);
+    font-style: italic;
+}
+
+/* Animation & Visuals */
+.hero-art {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    margin: 4rem 1rem;
+}
+
+.shape {
+    position: absolute;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+    animation: float 6s infinite ease-in-out;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    background: var(--gold);
+    border-radius: 50%;
+    left: 0;
+}
+
+.square {
+    width: 180px;
+    height: 180px;
+    background: #333;
+    right: 0;
+    animation-delay: -3s;
+}
+
+.blend-mode {
+    font-size: 5rem;
+    z-index: 2;
+    color: #fff;
+    mix-blend-mode: diff;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Grid & Cards - Pseudoclases */
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 4rem 5%;
+}
+
+.card {
+    padding: 2rem;
+    border: 1px solid var(--gray);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.card:nth-child(even) {
+    background: #fdfdfd;
+}
+
+/* nth-child demo */
+
+/* Gallery - Backgrounds */
+.gallery {
+    display: flex;
+    height: 300px;
+}
+
+.art-piece {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+    filter: grayscale(80%);
+    /* OPTIONAL REQ: filter */
+}
+
+.art-piece:first-child {
+    background-image: url('../img/noche-estrellada.jpg');
+}
+
+.art-piece:nth-child(2) {
+    background-image: url('../img/caminante-sobre-un-mar.jpg');
+}
+
+.art-piece:last-child {
+    background-image: url('../img/tarde-de-domingo.webp');
+}
+
+.art-piece:hover {
+    flex: 2;
+    filter: grayscale(0%);
+}
+
+/* Interactive & Forms */
+.interactive {
+    padding: 4rem 5%;
+    text-align: center;
+    background: var(--gray);
+}
+
+.input-group {
+    margin-top: 1.5rem;
+}
+
+input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    width: 250px;
+    transition: width 0.3s;
+}
+
+input:focus {
+    width: 300px;
+    border-color: var(--gold);
+    outline: none;
+}
+
+button {
+    padding: 0.8rem 2rem;
+    background: var(--text);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+button i {
+    margin-left: 0.5rem;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .gallery {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .art-piece {
+        padding: 3rem;
+    }
+
+    input:focus {
+        width: 100%;
+    }
+}
