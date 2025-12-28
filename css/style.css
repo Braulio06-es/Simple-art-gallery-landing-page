@@ -19,7 +19,10 @@ body {
     font-family: var(--sans);
 }
 
-h1,h2,h3,.brand {
+h1,
+h2,
+h3,
+.brand {
     font-family: var(--serif);
 }
 
@@ -39,6 +42,9 @@ header {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 nav a {
@@ -48,7 +54,8 @@ nav a {
     transition: color 0.3s;
 }
 
-nav a:hover, nav a:focus {
+nav a:hover,
+nav a:focus {
     color: var(--gold);
 }
 
@@ -251,6 +258,35 @@ button:active {
 
     h1 {
         font-size: 2.5rem;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        margin: 0 0.5rem;
+    }
+
+    .title {
+        margin-bottom: 2rem;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    input {
+        width: 100%;
     }
 
     .gallery {
